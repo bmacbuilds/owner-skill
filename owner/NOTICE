@@ -1,0 +1,21 @@
+Owner adapts an open-source work under the Apache License, Version 2.0. The licence's full text is in
+LICENSE-APACHE-2.0, in the owner folder.
+
+Copyright 2026 Anthropic, PBC.
+
+Small Business, Anthropic's plugin for running a small business (commit 5e504ae, its version 1.35.2), in
+owner/commands/ and owner/shared/. Changed for Owner:
+- Each of its 44 skills is a command here: its SKILL.md is the command's COMMAND.md, with a title and an ask added
+  to its frontmatter and its allowed-tools, version and compatibility lines left out, and its reference notes beside it.
+- Its commands are named /owner-NAME, and one link to a sibling's page names its COMMAND.md.
+- Its connector addresses (.mcp.json) are left out: the owner connects their tools in their AI app. The shared
+  connector note says so, and calls the rule Owner's.
+- Three paths to another skill's notes name its folder under commands/.
+- cash-flow-snapshot's confidence band is a share of the expected inflows, as its own table says, where its formula
+  took a share of the net; its worked example follows it, and its chat summary is a markdown table.
+- The voice profile, speed-to-lead's criteria and outreach-composer's corrections are kept in the owner's notes, not
+  written into the plugin's own files.
+Each changed file says so in its first line. The rest is unchanged.
+
+Owner's own files (its SKILL.md, the header of each command's page and its README) are under the MIT License in
+LICENSE.

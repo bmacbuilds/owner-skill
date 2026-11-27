@@ -1,0 +1,14 @@
+{
+  "name": "owner",
+  "description": "Forty-four commands that help run a small business, from one link or /owner: cash and payroll, bills, invoices, the month-end close and tax-season papers, leads and outreach, the CRM, ads, content and reviews, proposals, contracts and grants, the inbox, hiring and stock, and a Monday brief. It works with the tools the owner already has connected in their AI app, or a file, a PDF or a pasted email, and nothing is sent, posted, paid or written to their systems without their yes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Brian MacDonald",
+    "url": "https://github.com/bmacbuilds"
+  },
+  "homepage": "https://github.com/bmacbuilds/owner-skill",
+  "repository": "https://github.com/bmacbuilds/owner-skill",
+  "license": "MIT",
+  "keywords": ["claude-code", "claude-skills"],
+  "skills": "./"
+}
