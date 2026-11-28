@@ -5,7 +5,7 @@ description: >-
   Runs the payroll-confidence chain end to end — forecasts cash across the payroll window with cash-flow-snapshot, ranks and drafts overdue-invoice reminders with invoice-chase to close any gap, then assembles timesheets, flags every anomaly, and stages the run with payroll-prep. On Gusto the run is staged for the owner to submit; on QuickBooks Payroll, or with no payroll system, the last step is a validated run sheet the owner keys in. This chain never presses the payroll button. Builds on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), with Gmail or M365, PayPal, Square, Stripe, and either Gusto or QuickBooks Payroll adding detail, and falls back to CSV and timesheet uploads. Use it whenever payroll is the worry, including "can I make payroll," "payroll is due Friday," "plan payroll," "will I have enough to pay the crew," or "I need to run payroll but money is tight." Accepts optional horizon and payroll-date arguments.
 ---
 
-<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME. -->
+<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME. Changed for Owner 1.1 (2026-11-28): its gate has a branch for payroll that is covered with little to spare. -->
 # Plan Payroll
 
 Three skills in order: know payroll is covered, close the gap if it is not, then run it.
@@ -26,7 +26,7 @@ Invoke `cash-flow-snapshot`. It owns the forecast math, the confidence bands, an
 
 Say the verdict in one line before anything else: covered, tight, or short by a named dollar amount on a named date.
 
-**Gate — where the chain goes next.** If payroll is comfortably covered, ask whether to skip the collection step and go straight to the run. If there is a gap, present it and wait for an explicit "see what we can collect" before Step 2.
+**Gate — where the chain goes next.** If payroll is comfortably covered, ask whether to skip the collection step and go straight to the run. If there is a gap, present it and wait for an explicit "see what we can collect" before Step 2. If it is covered with little to spare, say how little and what could take it below zero, and ask whether to see what can be collected first.
 
 ## Step 2 — Close the gap (invoice-chase)
 

@@ -14,7 +14,7 @@ set -euo pipefail
 
 NAME="owner"
 FALLBACK="bmac-owner"
-RELEASE_URL="${OWNER_RELEASE_URL:-https://github.com/bmacbuilds/owner-skill/archive/refs/tags/v1.0.0.tar.gz}"
+RELEASE_URL="${OWNER_RELEASE_URL:-https://github.com/bmacbuilds/owner-skill/archive/refs/tags/v1.1.0.tar.gz}"
 MARKER=".owner-install"
 COMMANDS="ap-processor cash-flow-snapshot close-month invoice-chase month-end-prep pay-the-bills payroll-prep plan-payroll report-builder report-pack tax-prep tax-season-organizer call-list crm-autopilot grow-pipeline lead-finder lead-triage outreach-composer reactivate speed-to-lead ad-manager canva-creator content-strategy growth-pulse marketing-monday review-reputation seo-ai-visibility social-content-engine contract-review grant-rfp-writer proposal-builder ticket-deflector hiring-screener inbox-manager inventory-planner job-post-builder restock business-pulse monday-brief smb-onboard smb-router brand-style build-agent build-connector"   # written by scripts/sync.py from skill.json
 FROM="" UPDATE=0 REPLACE=0 ASSUME_YES=0

@@ -19,7 +19,7 @@ param(
 $ErrorActionPreference = "Stop"
 $Fallback = "bmac-owner"
 $ReleaseUrl = if ($env:OWNER_RELEASE_URL) { $env:OWNER_RELEASE_URL } else {
-  "https://github.com/bmacbuilds/owner-skill/archive/refs/tags/v1.0.0.zip" }
+  "https://github.com/bmacbuilds/owner-skill/archive/refs/tags/v1.1.0.zip" }
 $Marker = ".owner-install"
 $Commands = @("ap-processor", "cash-flow-snapshot", "close-month", "invoice-chase", "month-end-prep", "pay-the-bills", "payroll-prep", "plan-payroll", "report-builder", "report-pack", "tax-prep", "tax-season-organizer", "call-list", "crm-autopilot", "grow-pipeline", "lead-finder", "lead-triage", "outreach-composer", "reactivate", "speed-to-lead", "ad-manager", "canva-creator", "content-strategy", "growth-pulse", "marketing-monday", "review-reputation", "seo-ai-visibility", "social-content-engine", "contract-review", "grant-rfp-writer", "proposal-builder", "ticket-deflector", "hiring-screener", "inbox-manager", "inventory-planner", "job-post-builder", "restock", "business-pulse", "monday-brief", "smb-onboard", "smb-router", "brand-style", "build-agent", "build-connector")   # written by scripts/sync.py from skill.json
 

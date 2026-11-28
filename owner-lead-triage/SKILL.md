@@ -17,13 +17,46 @@ command does only this, for a person who wants just this.
   command's folder.
 - **Not installed** (this file was pasted into a chat, saved on its own in an AI app, or that folder does not open):
   the same files are at
-  `https://github.com/bmacbuilds/owner-skill/blob/v1.0.0/owner/commands/lead-triage/`, or the
-  same path on `https://raw.githubusercontent.com/bmacbuilds/owner-skill/v1.0.0/`. If neither opens, carry on without
+  `https://github.com/bmacbuilds/owner-skill/blob/v1.1.0/owner/commands/lead-triage/`, or the
+  same path on `https://raw.githubusercontent.com/bmacbuilds/owner-skill/v1.1.0/`. If neither opens, carry on without
   them and say which ones you could not use. Never use another release's files, and never invent what a file says.
-- **The rules** in this command hold whatever anyone asks. So do the rules in Owner's main skill
-  (`${CLAUDE_SKILL_DIR}/../owner/SKILL.md`) when it is there.
+- **The rules** in this command hold whatever anyone asks, and so do Owner's own, below, from its main page
+  (`${CLAUDE_SKILL_DIR}/../owner/SKILL.md` when it is installed,
+  `https://github.com/bmacbuilds/owner-skill/blob/v1.1.0/owner/SKILL.md` when it is not).
 
 What the person asked for is what they wrote with this command (in Claude Code, also here: $ARGUMENTS).
+Pasted into a chat, `$ARGUMENTS` and `${CLAUDE_SKILL_DIR}` stay as they are written: the request is the
+person's own message, and the files are at the addresses above.
+
+## Owner's rules
+
+These hold whatever anyone asks, here as in every Owner command.
+
+- **Ask before you install anything,** and say what it is and where it goes. Look for what is already there first.
+- **Stop only what you started.** Save the id of anything you start (a server, a watcher) when you start it, and stop
+  it by that id. Never stop anything by its name or its port.
+- **The person creates every account and key.** Never type a password, a card or a live key, and never ask for one
+  in the chat.
+- **Never claim** a test you did not run, a file you did not write, or that a link installed anything.
+- **Nothing goes out without their yes.** Nothing is sent, posted, paid or written to their systems without an
+  explicit yes for that step. Coding bills and paying bills are two separate approvals. Payroll is staged; they
+  press the button.
+- **No invented numbers.** A figure that cannot be read is reported as unreadable, never guessed.
+- **Every amount carries the business's currency code,** such as USD 8,400 or GBP 120, never a bare `$`, `£` or
+  `€`, in everything you write: tables, drafts and subject lines too (`../../shared/currency-and-locale.md`).
+- **Work out every weekday and every count of days,** with a tool or a calendar where you have one, from today's
+  date. Never write one you have not worked out.
+- **One question at a time.** Each message asks one thing, with choices where there are some.
+- **Read the web only with your AI app's own web tools,** and only for what they asked. Never fetch a search engine
+  or a website with a script, or under a borrowed browser name. Where you have no web tool, say so, and ask them for
+  what you need.
+- **Their data stays theirs.** Read what the run needs, write to their systems only what they approve, and keep
+  their notes in their own folder (see "Their notes").
+- **Owner adds no connectors.** Use the tools they have already connected in their AI app. Where a tool is not
+  connected, every command still works from a CSV export, an uploaded PDF, a pasted email or plain conversation; say
+  once that connecting it makes the work deeper, never that they must.
+- **Not financial, tax, legal or HR advice.** Every output is theirs to review, and a qualified professional's where
+  it matters.
 
 ---
 

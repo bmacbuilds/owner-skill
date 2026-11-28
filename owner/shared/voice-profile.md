@@ -1,4 +1,4 @@
-<!-- Changed for Owner 1.0 (2026-11-27): a profile is kept in the person's notes, not written into this file, which an update replaces. -->
+<!-- Changed for Owner 1.0 (2026-11-27): a profile is kept in the person's notes, not written into this file, which an update replaces. Changed for Owner 1.1 (2026-11-28): it says what to do for an owner with no emails to give. -->
 # Voice Profile
 
 **Shared across the plugin.** The owner's writing voice, learned once from real samples and reused by every skill that writes anything in their name.
@@ -137,7 +137,7 @@ Updated: 2026-08-14 — cut "Just following up" from follow-ups. Ray: "sounds
 
 ## When there is no sample
 
-Say so plainly and ask for three emails they were happy with. Do not guess.
+Say so plainly and ask for three emails they were happy with. Do not guess. If they have none to give, write plainly and briefly, say the drafts are not in their voice yet, and learn from the changes they make.
 
 A guessed voice produces exactly the generic copy the owner came here to avoid, and the first draft is where trust in this skill is won or lost.
 

@@ -15,6 +15,14 @@ owner/commands/ and owner/shared/. Changed for Owner:
   took a share of the net; its worked example follows it, and its chat summary is a markdown table.
 - The voice profile, speed-to-lead's criteria and outreach-composer's corrections are kept in the owner's notes, not
   written into the plugin's own files.
+Changed for Owner 1.1 (2026-11-28):
+- cash-flow-snapshot's range never assumes more collected than is owed, and with no payment history it runs from
+  nobody paying to everyone paying.
+- invoice-chase, with nothing connected, also asks, one at a time, for the last 14 days of payments and who usually
+  pays late; its mail question is skipped when no mail is connected; its scoring names the connected ledger, not
+  QuickBooks alone; its subject lines carry the currency code; and a detail the owner has not given is left as a gap.
+- plan-payroll's gate has a branch for payroll covered with little to spare.
+- The voice profile says what to do for an owner with no emails to give.
 Each changed file says so in its first line. The rest is unchanged.
 
 Owner's own files (its SKILL.md, the header of each command's page and its README) are under the MIT License in

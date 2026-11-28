@@ -1,10 +1,11 @@
+<!-- Changed for Owner 1.1 (2026-11-28): scoring names the connected ledger or the owner's own history, the subject lines carry the currency code where they had a bare $, and a detail the owner has not given is left as a gap, never guessed. -->
 # Tone Matching
 
 Scoring logic and email tone guidelines for invoice-chase.
 
 ## Scoring
 
-Score each customer using QuickBooks payment history for the last 12 months. Require a minimum of 3 invoices to score; fewer than 3 defaults to `occasionally-late`.
+Score each customer using the connected ledger's payment history for the last 12 months, or the history the owner gives. Require a minimum of 3 invoices to score; fewer than 3 defaults to `occasionally-late`.
 
 | Score | Criteria |
 |---|---|
@@ -24,13 +25,13 @@ Score each customer using QuickBooks payment history for the last 12 months. Req
 
 ## Subject lines
 
-- Gentle: `Quick reminder: Invoice #[N] for $[amount]`
-- Neutral: `Following up: Invoice #[N] — $[amount] past due`
-- Firm: `Past due notice: Invoice #[N] — $[amount] ([X] days overdue)`
+- Gentle: `Quick reminder: Invoice #[N] for [currency code] [amount]`
+- Neutral: `Following up: Invoice #[N] — [currency code] [amount] past due`
+- Firm: `Past due notice: Invoice #[N] — [currency code] [amount] ([X] days overdue)`
 
 ## Body structure (all tones)
 
-Every reminder includes: invoice number(s), total amount due, original due date, days overdue, and payment link or instructions.
+Every reminder includes: invoice number(s), total amount due, original due date, days overdue, and payment link or instructions. One the owner has not given is a gap in brackets for them to fill, never a guess.
 
 Tone-specific additions:
 - **Gentle**: one acknowledgment sentence ("I know things get busy")

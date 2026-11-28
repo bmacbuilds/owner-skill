@@ -17,17 +17,50 @@ command does only this, for a person who wants just this.
   command's folder.
 - **Not installed** (this file was pasted into a chat, saved on its own in an AI app, or that folder does not open):
   the same files are at
-  `https://github.com/bmacbuilds/owner-skill/blob/v1.0.0/owner/commands/invoice-chase/`, or the
-  same path on `https://raw.githubusercontent.com/bmacbuilds/owner-skill/v1.0.0/`. If neither opens, carry on without
+  `https://github.com/bmacbuilds/owner-skill/blob/v1.1.0/owner/commands/invoice-chase/`, or the
+  same path on `https://raw.githubusercontent.com/bmacbuilds/owner-skill/v1.1.0/`. If neither opens, carry on without
   them and say which ones you could not use. Never use another release's files, and never invent what a file says.
-- **The rules** in this command hold whatever anyone asks. So do the rules in Owner's main skill
-  (`${CLAUDE_SKILL_DIR}/../owner/SKILL.md`) when it is there.
+- **The rules** in this command hold whatever anyone asks, and so do Owner's own, below, from its main page
+  (`${CLAUDE_SKILL_DIR}/../owner/SKILL.md` when it is installed,
+  `https://github.com/bmacbuilds/owner-skill/blob/v1.1.0/owner/SKILL.md` when it is not).
 
 What the person asked for is what they wrote with this command (in Claude Code, also here: $ARGUMENTS).
+Pasted into a chat, `$ARGUMENTS` and `${CLAUDE_SKILL_DIR}` stay as they are written: the request is the
+person's own message, and the files are at the addresses above.
+
+## Owner's rules
+
+These hold whatever anyone asks, here as in every Owner command.
+
+- **Ask before you install anything,** and say what it is and where it goes. Look for what is already there first.
+- **Stop only what you started.** Save the id of anything you start (a server, a watcher) when you start it, and stop
+  it by that id. Never stop anything by its name or its port.
+- **The person creates every account and key.** Never type a password, a card or a live key, and never ask for one
+  in the chat.
+- **Never claim** a test you did not run, a file you did not write, or that a link installed anything.
+- **Nothing goes out without their yes.** Nothing is sent, posted, paid or written to their systems without an
+  explicit yes for that step. Coding bills and paying bills are two separate approvals. Payroll is staged; they
+  press the button.
+- **No invented numbers.** A figure that cannot be read is reported as unreadable, never guessed.
+- **Every amount carries the business's currency code,** such as USD 8,400 or GBP 120, never a bare `$`, `£` or
+  `€`, in everything you write: tables, drafts and subject lines too (`../../shared/currency-and-locale.md`).
+- **Work out every weekday and every count of days,** with a tool or a calendar where you have one, from today's
+  date. Never write one you have not worked out.
+- **One question at a time.** Each message asks one thing, with choices where there are some.
+- **Read the web only with your AI app's own web tools,** and only for what they asked. Never fetch a search engine
+  or a website with a script, or under a borrowed browser name. Where you have no web tool, say so, and ask them for
+  what you need.
+- **Their data stays theirs.** Read what the run needs, write to their systems only what they approve, and keep
+  their notes in their own folder (see "Their notes").
+- **Owner adds no connectors.** Use the tools they have already connected in their AI app. Where a tool is not
+  connected, every command still works from a CSV export, an uploaded PDF, a pasted email or plain conversation; say
+  once that connecting it makes the work deeper, never that they must.
+- **Not financial, tax, legal or HR advice.** Every output is theirs to review, and a qualified professional's where
+  it matters.
 
 ---
 
-<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME. -->
+<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME. Changed for Owner 1.1 (2026-11-28): with nothing connected it also asks, one at a time, for the last 14 days of payments and who usually pays late, the mail question is skipped when no mail is connected, and scoring names the connected ledger, not QuickBooks alone. -->
 # Invoice Chase
 
 ## Quick start
@@ -47,7 +80,7 @@ User: "who owes me money"
 
 Ask the owner one question before running for the first time:
 
-1. **Mail connector**: "Do you use Gmail or Microsoft 365 for drafts?" — store the answer; use it for all non-PayPal draft queuing. If only one mail connector is connected, use it and skip the question. Either way, confirm the mailbox is the owner's before queuing a draft in it (`../../shared/tenant-scope.md`).
+1. **Mail connector**: "Do you use Gmail or Microsoft 365 for drafts?" — store the answer; use it for all non-PayPal draft queuing. If only one mail connector is connected, use it and skip the question. If none is connected, skip it too: the reminders are handed back for the owner to send from their own mail. Either way, confirm the mailbox is the owner's before queuing a draft in it (`../../shared/tenant-scope.md`).
 
 Do not ask again on subsequent runs. Stripe is not a setup question: when it is connected, its overdue invoices are pulled every run (`reference/v2_sources.md`).
 
@@ -61,7 +94,7 @@ Do not ask again on subsequent runs. Stripe is not a setup question: when it is 
 
    **If PayPal returns a 429 rate limit error:**
    - Retry once immediately with a **3-day window** instead.
-   - If the retry also returns 429, skip the PayPal cross-reference entirely for this run. Flag all customers in the batch as "PayPal unavailable — verify manually" in the summary table. Proceed to scoring using QuickBooks history only. Do not silently drop the caveat.
+   - If the retry also returns 429, skip the PayPal cross-reference entirely for this run. Flag all customers in the batch as "PayPal unavailable — verify manually" in the summary table. Proceed to scoring using the connected ledger's history only. Do not silently drop the caveat.
 
    If a customer shows a settled payment within the query window, flag as "possibly paid — verify" and exclude from the draft queue.
 
@@ -103,7 +136,7 @@ Do not ask again on subsequent runs. Stripe is not a setup question: when it is 
 
 ## No connectors at all
 
-Still works. Ask for the AR aging report as a CSV upload, score and draft from that, and hand the reminders back for manual send. Same tone-matching, same output — one extra step for the owner.
+Still works. Ask, one at a time: for the AR aging report as a CSV upload (or the overdue invoices typed in), then for the payments received in the last 14 days, then who usually pays late. Score and draft from those, and hand the reminders back for manual send. Same tone-matching, same output — one extra step for the owner.
 
 ## More sources
 

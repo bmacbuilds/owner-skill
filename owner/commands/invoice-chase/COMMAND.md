@@ -12,7 +12,7 @@ description: >-
   unpaid invoices.
 ---
 
-<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME. -->
+<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME. Changed for Owner 1.1 (2026-11-28): with nothing connected it also asks, one at a time, for the last 14 days of payments and who usually pays late, the mail question is skipped when no mail is connected, and scoring names the connected ledger, not QuickBooks alone. -->
 # Invoice Chase
 
 ## Quick start
@@ -32,7 +32,7 @@ User: "who owes me money"
 
 Ask the owner one question before running for the first time:
 
-1. **Mail connector**: "Do you use Gmail or Microsoft 365 for drafts?" — store the answer; use it for all non-PayPal draft queuing. If only one mail connector is connected, use it and skip the question. Either way, confirm the mailbox is the owner's before queuing a draft in it (`../../shared/tenant-scope.md`).
+1. **Mail connector**: "Do you use Gmail or Microsoft 365 for drafts?" — store the answer; use it for all non-PayPal draft queuing. If only one mail connector is connected, use it and skip the question. If none is connected, skip it too: the reminders are handed back for the owner to send from their own mail. Either way, confirm the mailbox is the owner's before queuing a draft in it (`../../shared/tenant-scope.md`).
 
 Do not ask again on subsequent runs. Stripe is not a setup question: when it is connected, its overdue invoices are pulled every run (`reference/v2_sources.md`).
 
@@ -46,7 +46,7 @@ Do not ask again on subsequent runs. Stripe is not a setup question: when it is 
 
    **If PayPal returns a 429 rate limit error:**
    - Retry once immediately with a **3-day window** instead.
-   - If the retry also returns 429, skip the PayPal cross-reference entirely for this run. Flag all customers in the batch as "PayPal unavailable — verify manually" in the summary table. Proceed to scoring using QuickBooks history only. Do not silently drop the caveat.
+   - If the retry also returns 429, skip the PayPal cross-reference entirely for this run. Flag all customers in the batch as "PayPal unavailable — verify manually" in the summary table. Proceed to scoring using the connected ledger's history only. Do not silently drop the caveat.
 
    If a customer shows a settled payment within the query window, flag as "possibly paid — verify" and exclude from the draft queue.
 
@@ -88,7 +88,7 @@ Do not ask again on subsequent runs. Stripe is not a setup question: when it is 
 
 ## No connectors at all
 
-Still works. Ask for the AR aging report as a CSV upload, score and draft from that, and hand the reminders back for manual send. Same tone-matching, same output — one extra step for the owner.
+Still works. Ask, one at a time: for the AR aging report as a CSV upload (or the overdue invoices typed in), then for the payments received in the last 14 days, then who usually pays late. Score and draft from those, and hand the reminders back for manual send. Same tone-matching, same output — one extra step for the owner.
 
 ## More sources
 

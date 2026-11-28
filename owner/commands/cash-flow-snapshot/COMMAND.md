@@ -11,7 +11,7 @@ description: >-
   Falls back to CSV upload when no connector is live.
 ---
 
-<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME; its confidence band is a share of the expected inflows, as its own table says, where its formula took a share of the net, which put the low above the high whenever the net was negative. -->
+<!-- Changed for Owner 1.0 (2026-11-27): this is the original skill's SKILL.md, with Owner's title and ask in its frontmatter and its allowed-tools, version and compatibility lines left out; its commands are named /owner-NAME; its confidence band is a share of the expected inflows, as its own table says, where its formula took a share of the net, which put the low above the high whenever the net was negative. Changed for Owner 1.1 (2026-11-28): the high end of the range never assumes more collected than is owed, and with no payment history it runs from nobody paying to everyone paying. -->
 # Cash Flow Snapshot
 
 Produces a 30/60/90-day cash flow forecast with percentage-variance confidence
@@ -110,7 +110,11 @@ high = net_cash + band_pct × expected_inflows
 ```
 
 Round band_pct to one decimal place. Cap at ±50% — higher variance means the
-data is too thin to model; flag it instead (see Step 5).
+data is too thin to model; flag it instead (see Step 5). The high never assumes
+more coming in than is owed: cap it at the net with every receivable on file
+collected inside the window. With no payment history at all there is no
+expected figure: give the range from nobody paying to everyone paying, and
+say why.
 
 ### Step 5 — Flag named risks
 
